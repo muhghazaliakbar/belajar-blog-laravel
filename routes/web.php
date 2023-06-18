@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $semuaArtikel = App\Models\Blog::where('judul', 'judul blog 1')
-        ->where('jumlah_like', 10)
-        ->first();
+    // Cara menampilkan semua data di model `Blog`
+    $semuaArtikel = App\Models\Blog::all();
+    // Cara menampilkan data di model `Blog` berdasakan ID
+    $blogBwedasarkanId = App\Models\Blog::find(1);
+    // Cara menampilkan data di model `Blog` berdasakan kolom tertentu
+    $blogBwedasarkanId = App\Models\Blog::where('judul', 'Judul blog 1')->first();
+    // Cara menampilkan data di model `Blog` berdasakan kolom `jumlah_like` di bawah 10
+    $blogBwedasarkanId = App\Models\Blog::where('jumlah_like', '<', 10)->get();
+
     
     return view('welcome', ['semuaArtikel' => $semuaArtikel]);
 });
