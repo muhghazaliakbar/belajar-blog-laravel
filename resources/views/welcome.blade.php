@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container p-5">
+    <!-- Ini untuk menampilkan data yang banyak -->
     @foreach($semuaArtikel as $artikel)
         <div class="card w-full mb-3">
             <div class="card-body">
@@ -20,6 +21,7 @@
         </div>
     @endforeach
 
+    <!-- Ini untuk menampilkan 1 data -->
     <div class="card-body">
         <h5 class="card-title">{{ $semuaArtikel->judul }}</h5>
         
@@ -29,5 +31,9 @@
         
         <a href="#" class="btn btn-primary">Detail</a>
     </div>
+    
+    
+    <!-- Bisa juga menggunakan @include dengan mengirim data yang diterima dari router -->
+    @include('blog-card', ['artikel' => $artikel])
 </div>
 @endsection
