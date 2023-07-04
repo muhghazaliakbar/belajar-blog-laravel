@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,48 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // Cara menampilkan semua data di model `Blog`
-    $semuaArtikel = App\Models\Blog::all();
-    // Cara menampilkan data di model `Blog` berdasakan ID
-    $blogBwedasarkanId = App\Models\Blog::find(1);
-    // Cara menampilkan data di model `Blog` berdasakan kolom tertentu
-    $blogBwedasarkanId = App\Models\Blog::where('judul', 'Judul blog 1')->first();
-    // Cara menampilkan data di model `Blog` berdasakan kolom `jumlah_like` di bawah 10
-    $blogBwedasarkanId = App\Models\Blog::where('jumlah_like', '<', 10)->get();
+Route::get('/', WelcomeController::class);
 
-    
-    return view('welcome', ['semuaArtikel' => $semuaArtikel]);
-});
-
-/**
- * Kalau di laravel selalu memanggilannya diawali dengan class `Route`
- */
-Route::get('/profile', function () {
-    // fungsi view laravel adalah menampilkan halaman dari direktori `resources/views`
-    return view('profil');
-});
-
-Route::get('/blog', function () {
-    return view('blog');
-});
-
-/**
- * <?php $name = 'Irvan' ?>
- */
-Route::get('/blog/cara-membuat-blog', function () {
-    $username = 'Muh Ghazali Akbar';
-    $email = 'johndoe@example.com';
-
-    return view('blog.cara-membuat-blog')
-        ->with('username', $username)
-        ->with('email', $email);
-});
-
-Route::get('/blog/cara-membuat-website', function () {
-    return view('blog.cara-membuat-website');
-});
-
-/**
- * Route::get(parameter1, parametr2, ...)
- */
+// Router untuk blog artikel
+Route::get('/artikel', [BlogController::class, 'index']);
+Route::get('/artikel/{id}', [BlogController::class, 'show']);
+Route::get('/artikel/{id}/edit', [BlogController::class, 'edit']);

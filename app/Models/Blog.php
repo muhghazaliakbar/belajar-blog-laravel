@@ -9,5 +9,9 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $table = 'blog';
+    protected $fillable = [
+        'judul',
+        'konten',
+        'jumlah_like',
+    ];
 }

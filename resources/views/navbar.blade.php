@@ -1,7 +1,7 @@
 <nav class="bg-base-100 shadow-lg">
     <div class="navbar max-w-5xl mx-auto">
         <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl">Blog</a>
+            <a href="/" class="btn btn-ghost normal-case text-xl">Blog</a>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
