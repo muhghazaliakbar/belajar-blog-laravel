@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $artikel = Blog::latest()->get();
@@ -19,17 +16,11 @@ class BlogController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('artikel.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         /**
@@ -46,9 +37,6 @@ class BlogController extends Controller
         return redirect("/artikel/$artikel->id");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         /**
@@ -62,9 +50,6 @@ class BlogController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         if (auth()->guest()) {
@@ -82,9 +67,6 @@ class BlogController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         /**
@@ -113,9 +95,6 @@ class BlogController extends Controller
         return redirect("/artikel/$artikel->id");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function delete(string $id)
     {
         /**
