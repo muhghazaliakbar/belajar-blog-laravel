@@ -6,12 +6,11 @@ use App\Models\Blog;
 
 class WelcomeController extends Controller
 {
+    /**
+     * Kita bisa menggunakan method `__invoke()` jika dalam satu controller cuma menggunakan satu fungsi
+     */
     public function __invoke()
     {
-        $artikel = Blog::latest()->get();
-
-        return view('welcome', [
-            'artikel' => $artikel,
-        ]);
+        return view('welcome');
     }
 }

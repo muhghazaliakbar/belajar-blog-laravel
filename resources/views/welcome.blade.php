@@ -5,9 +5,5 @@
 @endsection
 
 @section('content')
-    <div class="flex flex-col space-y-6">
-        @foreach($artikel as $artikelItem)
-            @include('komponen.artikel-item', ['artikelItem' => $artikelItem])
-        @endforeach
-    </div>
+    <h1 class="text-5xl text-center font-semibold">Selamat datang di pembelajaran blog</h1>
 @endsection
