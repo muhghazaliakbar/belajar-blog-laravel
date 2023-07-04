@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('konten');
-            $table->integer('jumlah_like');
+            $table->integer('jumlah_like')->nullable();
             $table->timestamps();
         });
     }
